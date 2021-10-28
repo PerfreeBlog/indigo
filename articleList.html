@@ -1,0 +1,57 @@
+#include("/static/themes/indigo/layout/layout.html")
+#include("/static/themes/indigo/layout/header.html")
+#@layout()
+#define content()
+#@header(1)
+<header class="content-header index-header">
+    <div class="container fade-scale">
+        <h1 class="title">#option('WEB_NAME','未设置')</h1>
+        <h5 class="subtitle">#option('PERFREE_SUB_TITLE','未设置')</h5>
+    </div>
+</header>
+<div class="container body-wrap">
+    #articlePage(pageSize=10)
+    <ul class="post-list">
+        #for(article: articlePage.data)
+        <li class="post-list-item fade">
+            <article id="post-multipart-x-mixed-replace" class="article-card article-type-post" itemprop="blogPost">
+                <div class="post-meta">
+                    <time class="post-time" title='#date(article.createTime, "yyyy年MM月dd日 HH:mm:ss")' datetime="#(article.createTime)" itemprop="datePublished">#date(article.createTime, "yyyy年MM月dd日")</time>
+                </div>
+                <h3 class="post-title" itemprop="name">
+                    <a class="post-title-link" href="#(article.url)">#(article.title)</a>
+                </h3>
+                <div class="post-content" id="post-content" itemprop="postContent">
+                    #mdSummary(article.content,200)<a href="#(article.url)" class="post-more waves-effect waves-button">阅读全文…</a>
+                </div>
+                #if(article.tags.size() > 0)
+                <div class="post-footer">
+                    <ul class="article-tag-list">
+                        #for(tag: article.tags)
+                        <li class="article-tag-list-item">
+                            <a class="article-tag-list-link" href="#(tag.url)">#(tag.name)</a>
+                        </li>
+                        #end
+                    </ul>
+                </div>
+                #end
+
+            </article>
+        </li>
+        #else
+            <div class="m-no-article">这个人很懒,这里什么都没有</div>
+        #end
+    </ul>
+    #pageRender(articlePage, preText="上一页",nextText="下一页")
+    #end
+</div>
+#end
+#define script()
+<script>
+    var BLOG = {
+        ROOT: "/",
+        SHARE: !0,
+        REWARD: !1
+    };
+</script>
+#end

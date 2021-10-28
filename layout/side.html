@@ -1,0 +1,39 @@
+<aside id="menu">
+    <div class="inner flex-row-vertical">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+            <i class="icon icon-lg icon-close"></i>
+        </a>
+
+        <div class="brand-wrap" style="background-image:url(/static/themes/indigo/img/brand.jpg)">
+            <div class="brand">
+                <a href="/" class="avatar waves-effect waves-circle waves-light">
+                    <img src="#option('PERFREE_WEB_LOGO', '/static/themes/indigo/img/face.jpg')">
+                </a>
+                <hgroup class="introduce">
+                    <h5 class="nickname">#option('PERFREE_WEB_NAME', '未设置')</h5>
+                    <a href="mailto:#option('PERFREE_WEB_EMAIL', '未设置')" title="#option('PERFREE_WEB_EMAIL', '未设置')" class="mail">#option('PERFREE_WEB_EMAIL', '未设置')</a>
+                </hgroup>
+            </div>
+        </div>
+        <div class="scroll-wrap flex-col">
+            <ul class="nav">
+                <li class="waves-block waves-effect active">
+                    <a href="/">
+                        <i class="icon icon-lg icon-home"></i>
+                        首页
+                    </a>
+                </li>
+                #menus()
+                    #for(menu : menus)
+                        <li class="waves-block waves-effect">
+                            <a href="#(menu.url ??)">
+                                <i class="icon fa #(menu.icon ??)"></i>
+                                #(menu.name ??)
+                            </a>
+                        </li>
+                    #end
+                #end
+            </ul>
+        </div>
+    </div>
+</aside>

@@ -1,0 +1,59 @@
+#define header(type)
+<header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+            <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            #if(type == 1)
+                #option('WEB_NAME','未设置')
+            #else if (type == 2)
+                #(article.title ??)
+            #else
+                #(type ??)
+            #end
+        </div>
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+
+
+        </div>
+        #if(loginUser)
+        <a href="javascript:;" class="loginUser waves-effect waves-circle waves-light" id="loginUser">
+            <img src=" #(isBlank(loginUser.avatar) ? '/static/public/images/user.png': loginUser.avatar.replace('http://www.gravatar.com/','https://gravatar.loli.net/'))" alt="" class="user-img"> #(loginUser.userName ??)
+            <span class="down"><i class="fa fa-angle-down"></i></span>
+        </a>
+
+        <div class="user-menu" id="user-menu">
+            <span class="pon"></span>
+            #if(loginUser.hasAdmin())
+                <a href="/admin" class="user-menu-item waves-effect waves-circle waves-light">
+                    后台管理
+                </a>
+            #end
+
+            <a href="/logout" class="user-menu-item waves-effect waves-circle waves-light">
+                退出登录
+            </a>
+        </div>
+
+
+        #else
+            <a href="/login" class="header-icon waves-effect waves-circle waves-light">
+                登录
+            </a>
+            <span class="part">|</span>
+            <a href="/register" class="header-icon waves-effect waves-circle waves-light">
+                注册
+            </a>
+        #end
+
+    </div>
+</header>
+#end
