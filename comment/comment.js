@@ -79,8 +79,8 @@ function submitComment() {
             if (result.code === 200) {
                 $("#content").val('');
                 cancelReply();
-                const article = $("#articleId").val();
-                $("#commentListBox").load("/article/"+article+" #commentList",null,function(){
+                const thisUrl = $("#url").val();
+                $("#commentListBox").load(thisUrl+" #commentList",null,function(){
                     location.hash = "#comment-"+ result.data.id;
                 });
                 notyf.success('评论成功');
