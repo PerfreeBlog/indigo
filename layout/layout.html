@@ -2,7 +2,7 @@
 <html lang="zh-CN">
     <head>
         <meta charset="utf-8">
-        <title>#(SEO_TITLE ?? WEB_TITLE ?? '未设置')</title>
+        <title>#(WEB_TITLE ?? '未设置')#(isBlank(SEO_TITLE) ? '': '-' + SEO_TITLE)</title>
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
         <meta name="theme-color" content="#3F51B5">
         <meta name="keywords" content="#(SEO_KEYWORD ??)">
