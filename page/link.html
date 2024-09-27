@@ -4,7 +4,7 @@
 #define css()
 <link href="/static/themes/indigo/lib/viewerjs/viewer.min.css" rel="stylesheet">
 <link href="/static/themes/indigo/lib/highlight/styles/atom-one-dark.css" rel="stylesheet">
-<link href="/static/themes/indigo/comment/comment.css" rel="stylesheet">
+<link href="/static/themes/indigo/lib/perfree-comment/perfree-comment.css" rel="stylesheet">
 #end
 #define content()
 #@header('友链')
@@ -22,7 +22,7 @@
             <h1 class="post-card-title">友链</h1>
             #if(article)
                 <div class="post-content" id="post-content" itemprop="postContent">
-                    #mdToHtml(article.content ??)
+                    #(article.parseContent ??)
                 </div>
             #end
 
@@ -43,7 +43,7 @@
             #end
 
 
-            #if(option('PERFREE_WECHAT_IMG') && option('PERFREE_ALIPAY_IMG'))
+            #if(option('PERFREE_WECHAT_IMG', 'theme_indigo') && option('PERFREE_ALIPAY_IMG', 'theme_indigo'))
                 <div class="page-reward">
                     <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
                 </div>
@@ -52,7 +52,7 @@
         #if(article)
             <span id="commentAnchor"></span>
             <div class="comments vcomment" id="comments">
-                #include("/static/themes/indigo/comment/comment.html")
+                <perfree-comment article-id="#(article.id)" show-comment-list="true" class="perfree-comment"></perfree-comment>
             </div>
         #end
     </article>
@@ -68,10 +68,10 @@
         </h3>
         <div class="reward-content">
             <div class="reward-code">
-                <img id="rewardCode" src="#option('PERFREE_WECHAT_IMG')" alt="打赏二维码">
+                <img id="rewardCode" src="#option('PERFREE_WECHAT_IMG', 'theme_indigo')" alt="打赏二维码">
             </div>
             <label class="reward-toggle">
-                <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="#option('PERFREE_WECHAT_IMG')" data-alipay="#option('PERFREE_ALIPAY_IMG')">
+                <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="#option('PERFREE_WECHAT_IMG', 'theme_indigo')" data-alipay="#option('PERFREE_ALIPAY_IMG', 'theme_indigo')">
                 <div class="reward-toggle-ctrol">
                     <span class="reward-toggle-item wechat">微信</span>
                     <span class="reward-toggle-label"></span>
@@ -95,7 +95,7 @@
 #define script()
 <script src="/static/themes/indigo/lib/viewerjs/viewer.min.js"></script>
 <script src="/static/themes/indigo/lib/highlight/highlight.pack.js"></script>
-<script src="/static/themes/indigo/comment/comment.js"></script>
+<script src="/static/themes/indigo/lib/perfree-comment/perfree-comment.js"></script>
 <script>
     hljs.initHighlightingOnLoad();
 

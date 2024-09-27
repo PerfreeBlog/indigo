@@ -1,0 +1,117 @@
+{
+  "option": {
+    "form": {
+      "inline": false,
+      "hideRequiredAsterisk": false,
+      "labelPosition": "right",
+      "size": "default",
+      "labelWidth": "125px"
+    },
+    "resetBtn": {
+      "show": false,
+      "innerText": "重置"
+    },
+    "submitBtn": {
+      "show": true,
+      "innerText": "提交"
+    }
+  },
+  "rule": [
+    {
+      "type": "input",
+      "field": "PERFREE_WEB_NAME",
+      "title": "左侧名称",
+      "info": "左侧名称",
+      "$required": false,
+      "props": {
+        "placeholder": "请输入左侧名称"
+      },
+      "_fc_id": "id_Fintm1kdd1vcafc",
+      "name": "ref_F7ccm1kdd1vcagc",
+      "display": true,
+      "hidden": false,
+      "_fc_drag_tag": "input"
+    },
+    {
+      "type": "AttachSelectInput",
+      "field": "PERFREE_WEB_LOGO",
+      "title": "左侧logo",
+      "info": "左侧logo",
+      "$required": false,
+      "props": {
+        "placeholder": "左侧logo",
+        "attachType": "img",
+        "enableInput": true
+      },
+      "_fc_id": "id_Fkg0m1kde2szakc",
+      "name": "ref_Ftoim1kde2szalc",
+      "display": true,
+      "hidden": false,
+      "_fc_drag_tag": "AttachSelectInput"
+    },
+    {
+      "type": "input",
+      "field": "PERFREE_WEB_EMAIL",
+      "title": "左侧邮箱",
+      "info": "左侧邮箱",
+      "$required": false,
+      "props": {
+        "placeholder": "左侧邮箱"
+      },
+      "_fc_id": "id_Ffcmm1kdejlfanc",
+      "name": "ref_Fl5am1kdejlfaoc",
+      "display": true,
+      "hidden": false,
+      "_fc_drag_tag": "input"
+    },
+    {
+      "type": "input",
+      "field": "PERFREE_SUB_TITLE",
+      "title": "首页子标题",
+      "info": "首页子标题",
+      "$required": false,
+      "props": {
+        "placeholder": "首页子标题"
+      },
+      "_fc_id": "id_Fxn7m1kdez99aqc",
+      "name": "ref_Fbwnm1kdez99arc",
+      "display": true,
+      "hidden": false,
+      "_fc_drag_tag": "input"
+    },
+    {
+      "type": "AttachSelectInput",
+      "field": "PERFREE_WECHAT_IMG",
+      "title": "微信收款码",
+      "info": "微信收款码",
+      "$required": false,
+      "props": {
+        "placeholder": "微信收款码",
+        "attachType": "img",
+        "enableInput": true
+      },
+      "_fc_id": "id_Fj7hm1kdfmo8ayc",
+      "name": "ref_Fchtm1kdfmo8azc",
+      "display": true,
+      "hidden": false,
+      "_fc_drag_tag": "AttachSelectInput"
+    },
+    {
+      "type": "AttachSelectInput",
+      "field": "PERFREE_ALIPAY_IMG",
+      "title": "支付宝收款码",
+      "info": "支付宝收款码",
+      "$required": false,
+      "props": {
+        "attachType": "img",
+        "enableInput": true,
+        "placeholder": "支付宝收款码"
+      },
+      "_fc_id": "id_Fihdm1kdg67cb0c",
+      "name": "ref_Fygpm1kdg67cb1c",
+      "display": true,
+      "hidden": false,
+      "_fc_drag_tag": "AttachSelectInput"
+    }
+  ]
+}

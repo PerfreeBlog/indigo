@@ -4,7 +4,7 @@
 #define css()
 <link href="/static/themes/indigo/lib/viewerjs/viewer.min.css" rel="stylesheet">
 <link href="/static/themes/indigo/lib/highlight/styles/atom-one-dark.css" rel="stylesheet">
-<link href="/static/themes/indigo/comment/comment.css" rel="stylesheet">
+<link href="/static/themes/indigo/lib/perfree-comment/perfree-comment.css" rel="stylesheet">
 #end
 #define content()
     #@header(2)
@@ -25,20 +25,20 @@
                     <time class="post-time" title='#date(article.createTime, "yyyy年MM月dd日 HH:mm:ss")' datetime="#(article.createTime)" itemprop="datePublished">#date(article.createTime, "yyyy年MM月dd日")</time>
                 </div>
                 <div class="post-content" id="post-content" itemprop="postContent">
-                    #mdToHtml(article.content ??)
+                    #(article.parseContent ??)
                 </div>
-                #if(option('PERFREE_WECHAT_IMG') && option('PERFREE_ALIPAY_IMG'))
+                #if(option('PERFREE_WECHAT_IMG', 'theme_indigo') && option('PERFREE_ALIPAY_IMG', 'theme_indigo'))
                     <div class="page-reward">
                         <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
                     </div>
                 #end
 
-                #if(article.tags.size() > 0)
+                #if(article.tagList.size() > 0)
                     <div class="post-footer">
                         <ul class="article-tag-list">
-                            #for(tag: article.tags)
+                            #for(tag: article.tagList)
                                 <li class="article-tag-list-item">
-                                    <a class="article-tag-list-link" href="#(tag.url)">#(tag.name)</a>
+                                    <a class="article-tag-list-link" href="/tag/#(tag.slug)">#(tag.name)</a>
                                 </li>
                             #end
                         </ul>
@@ -49,7 +49,7 @@
                 #preArticle()
                     #if(preArticle)
                         <div class="waves-block waves-effect prev">
-                            <a href="#(preArticle.url)" id="post-prev" class="post-nav-link">
+                            <a href="/article/#(preArticle.slug)" id="post-prev" class="post-nav-link">
                                 <div class="tips">
                                     <i class="icon icon-angle-left icon-lg icon-pr"></i>
                                     Prev
@@ -63,7 +63,7 @@
                 #nextArticle()
                     #if(nextArticle)
                         <div class="waves-block waves-effect next">
-                            <a href="#(nextArticle.url)" id="post-next" class="post-nav-link">
+                            <a href="/article/#(nextArticle.slug)" id="post-next" class="post-nav-link">
                                 <div class="tips">
                                     Next <i class="icon icon-angle-right icon-lg icon-pl"></i>
                                 </div>
@@ -74,7 +74,7 @@
                 #end
             </nav>
             <div class="comments vcomment" id="comments">
-                #include("/static/themes/indigo/comment/comment.html")
+                <perfree-comment article-id="#(article.id)" show-comment-list="true" class="perfree-comment"></perfree-comment>
             </div>
 
 
@@ -89,10 +89,10 @@
             </h3>
             <div class="reward-content">
                 <div class="reward-code">
-                    <img id="rewardCode" src="#option('PERFREE_WECHAT_IMG')" alt="打赏二维码">
+                    <img id="rewardCode" src="#option('PERFREE_WECHAT_IMG', 'theme_indigo')" alt="打赏二维码">
                 </div>
                 <label class="reward-toggle">
-                    <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="#option('PERFREE_WECHAT_IMG')" data-alipay="#option('PERFREE_ALIPAY_IMG')">
+                    <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="#option('PERFREE_WECHAT_IMG', 'theme_indigo')" data-alipay="#option('PERFREE_ALIPAY_IMG', 'theme_indigo')">
                     <div class="reward-toggle-ctrol">
                         <span class="reward-toggle-item wechat">微信</span>
                         <span class="reward-toggle-label"></span>
@@ -106,7 +106,7 @@
 #define script()
 <script src="/static/themes/indigo/lib/viewerjs/viewer.min.js"></script>
 <script src="/static/themes/indigo/lib/highlight/highlight.pack.js"></script>
-<script src="/static/themes/indigo/comment/comment.js"></script>
+<script src="/static/themes/indigo/lib/perfree-comment/perfree-comment.js"></script>
 <script>
     hljs.initHighlightingOnLoad();
     var BLOG = {

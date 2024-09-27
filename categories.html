@@ -1,0 +1,48 @@
+#include("/static/themes/indigo/layout/layout.html")
+#include("/static/themes/indigo/layout/header.html")
+#@layout()
+#define content()
+    #@header('分类')
+    <header class="content-header archives-header">
+        <div class="container fade-scale">
+            <h1 class="title">分类</h1>
+        </div>
+    </header>
+    <div class="container body-wrap fade">
+        #categoriesPage(pageSize=20)
+        <div class="waterfall">
+            #for(category: categoriesPage.data)
+                <div class="waterfall-item">
+                    <article class="article-card archive-article">
+                        <h3 class="post-title" itemprop="name">
+                            <a class="post-title-link" href="/category/#(category.slug)">
+                                <i class="fa-regular fa-folder-open"></i> #(category.name)
+                            </a>
+                        </h3>
+                    </article>
+                </div>
+            #end
+        </div>
+        #if(categoriesPage.pageTotal > 1)
+        <nav class="m-pager-box wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+            #if(categoriesPage.hasPrevious)
+            <a class="m-pager " href="#(categoriesPage.previousUrl)">上一页</a>
+            #end
+            <span class="page-num">#(categoriesPage.pageNo) / #(categoriesPage.pageTotal)</span>
+            #if(categoriesPage.hasNext)
+            <a class="m-pager next-page-btn" href="#(categoriesPage.nextUrl)">下一页</a>
+            #end
+        </nav>
+        #end
+        #end
+    </div>
+#end
+#define script()
+<script>
+    var BLOG = {
+        ROOT: "/",
+        SHARE: !0,
+        REWARD: !1
+    };
+</script>
+#end

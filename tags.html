@@ -1,0 +1,42 @@
+#include("/static/themes/indigo/layout/layout.html")
+#include("/static/themes/indigo/layout/header.html")
+#@layout()
+#define content()
+#@header('标签')
+<header class="content-header archives-header">
+    <div class="container fade-scale">
+        <h1 class="title">标签</h1>
+    </div>
+</header>
+<div class="container body-wrap fade">
+    #tagsPage(pageSize=9999)
+    <ul class="article-tag-list">
+    #for(tag: tagsPage.data)
+        <li class="article-tag-list-item">
+            <a class="article-tag-list-link" href="/tag/#(tag.slug)">#(tag.name)</a>
+        </li>
+    #end
+    </ul>
+    #if(tagsPage.pageTotal > 1)
+    <nav class="m-pager-box wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+        #if(tagsPage.hasPrevious)
+        <a class="m-pager " href="#(tagsPage.previousUrl)">上一页</a>
+        #end
+        <span class="page-num">#(tagsPage.pageNo) / #(tagsPage.pageTotal)</span>
+        #if(tagsPage.hasNext)
+        <a class="m-pager next-page-btn" href="#(tagsPage.nextUrl)">下一页</a>
+        #end
+    </nav>
+    #end
+    #end
+</div>
+#end
+#define script()
+<script>
+    var BLOG = {
+        ROOT: "/",
+        SHARE: !0,
+        REWARD: !1
+    };
+</script>
+#end

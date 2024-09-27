@@ -27,7 +27,7 @@
                 <div class="post-content" id="post-content" itemprop="postContent">
                     #mdToHtml(article.content ??)
                 </div>
-                #if(option('PERFREE_WECHAT_IMG') && option('PERFREE_ALIPAY_IMG'))
+                #if(option('PERFREE_WECHAT_IMG', 'theme_indigo') && option('PERFREE_ALIPAY_IMG', 'theme_indigo'))
                 <div class="page-reward">
                     <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
                 </div>
@@ -60,10 +60,10 @@
             </h3>
             <div class="reward-content">
                 <div class="reward-code">
-                    <img id="rewardCode" src="#option('PERFREE_WECHAT_IMG')" alt="打赏二维码">
+                    <img id="rewardCode" src="#option('PERFREE_WECHAT_IMG', 'theme_indigo')" alt="打赏二维码">
                 </div>
                 <label class="reward-toggle">
-                    <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="#option('PERFREE_WECHAT_IMG')" data-alipay="#option('PERFREE_ALIPAY_IMG')">
+                    <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="#option('PERFREE_WECHAT_IMG', 'theme_indigo')" data-alipay="#option('PERFREE_ALIPAY_IMG', 'theme_indigo')">
                     <div class="reward-toggle-ctrol">
                         <span class="reward-toggle-item wechat">微信</span>
                         <span class="reward-toggle-label"></span>
@@ -84,8 +84,8 @@
     #@header(1)
     <header class="content-header index-header">
         <div class="container fade-scale">
-            <h1 class="title"> #option('WEB_NAME','未设置')</h1>
-            <h5 class="subtitle">#option('PERFREE_SUB_TITLE','未设置')</h5>
+            <h1 class="title"> #option('WEB_NAME', 'system_setting','未设置')</h1>
+            <h5 class="subtitle">#option('PERFREE_SUB_TITLE', 'theme_indigo','未设置')</h5>
         </div>
     </header>
     <div class="container body-wrap"></div>
