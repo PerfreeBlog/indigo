@@ -19,17 +19,17 @@
                             <time class="post-time" title='#date(article.createTime, "yyyy年MM月dd日 HH:mm:ss")' datetime="#(article.createTime)" itemprop="datePublished">#date(article.createTime, "yyyy年MM月dd日")</time>
                         </div>
                         <h3 class="post-title" itemprop="name">
-                            <a class="post-title-link" href="/article/#(article.slug)">#(article.title)</a>
+                            <a class="post-title-link" href="#(article.url)">#(article.title)</a>
                         </h3>
                         <div class="post-content" id="post-content" itemprop="postContent">
-                            #(article.summary)<a href="/article/#(article.slug)" class="post-more waves-effect waves-button">阅读全文…</a>
+                            #(article.summary)<a href="#(article.url)" class="post-more waves-effect waves-button">阅读全文…</a>
                         </div>
                         #if(article.tagList.size() > 0)
                             <div class="post-footer">
                                 <ul class="article-tag-list">
                                     #for(tag: article.tagList)
                                     <li class="article-tag-list-item">
-                                        <a class="article-tag-list-link" href="/tag/#(tag.slug)">#(tag.name)</a>
+                                        <a class="article-tag-list-link" href="#(tag.url)">#(tag.name)</a>
                                     </li>
                                     #end
                                 </ul>

@@ -25,14 +25,14 @@
                                     <time class="post-time" title='#date(archiveArticle.createTime, "yyyy年MM月dd日 HH:mm:ss")' datetime="#(archiveArticle.createTime)" itemprop="datePublished">#date(archiveArticle.createTime, "yyyy年MM月dd日")</time>
                                 </div>
                                 <h3 class="post-title" itemprop="name">
-                                    <a class="post-title-link" href="/article/#(archiveArticle.slug)">#(archiveArticle.title)</a>
+                                    <a class="post-title-link" href="#(archiveArticle.url)">#(archiveArticle.title)</a>
                                 </h3>
                                 #if(archiveArticle.tagList.size() > 0)
                                 <div class="post-footer">
                                     <ul class="article-tag-list">
                                         #for(tag: archiveArticle.tagList)
                                             <li class="article-tag-list-item">
-                                                <a class="article-tag-list-link" href="/tag/#(tag.slug)">#(tag.name)</a>
+                                                <a class="article-tag-list-link" href="#(tag.url)">#(tag.name)</a>
                                             </li>
                                         #end
                                     </ul>

@@ -13,7 +13,7 @@
     <ul class="article-tag-list">
     #for(tag: tagsPage.data)
         <li class="article-tag-list-item">
-            <a class="article-tag-list-link" href="/tag/#(tag.slug)">#(tag.name)</a>
+            <a class="article-tag-list-link" href="#(tag.url)">#(tag.name)</a>
         </li>
     #end
     </ul>

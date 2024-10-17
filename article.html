@@ -38,7 +38,7 @@
                         <ul class="article-tag-list">
                             #for(tag: article.tagList)
                                 <li class="article-tag-list-item">
-                                    <a class="article-tag-list-link" href="/tag/#(tag.slug)">#(tag.name)</a>
+                                    <a class="article-tag-list-link" href="#(tag.url)">#(tag.name)</a>
                                 </li>
                             #end
                         </ul>
@@ -49,7 +49,7 @@
                 #preArticle()
                     #if(preArticle)
                         <div class="waves-block waves-effect prev">
-                            <a href="/article/#(preArticle.slug)" id="post-prev" class="post-nav-link">
+                            <a href="#(preArticle.url)" id="post-prev" class="post-nav-link">
                                 <div class="tips">
                                     <i class="icon icon-angle-left icon-lg icon-pr"></i>
                                     Prev
@@ -63,7 +63,7 @@
                 #nextArticle()
                     #if(nextArticle)
                         <div class="waves-block waves-effect next">
-                            <a href="/article/#(nextArticle.slug)" id="post-next" class="post-nav-link">
+                            <a href="#(nextArticle.url)" id="post-next" class="post-nav-link">
                                 <div class="tips">
                                     Next <i class="icon icon-angle-right icon-lg icon-pl"></i>
                                 </div>
